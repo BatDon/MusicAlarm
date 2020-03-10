@@ -18,7 +18,6 @@ import com.test.table.musicalarm.R;
 
 import java.text.DateFormat;
 import java.util.Calendar;
-//https://www.youtube.com/watch?v=yrpimdBRk5Q
 
 public class MainActivity extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener {
     private TextView mTextView;
@@ -80,13 +79,6 @@ public class MainActivity extends AppCompatActivity implements TimePickerDialog.
 
         alarmManager.setExact(AlarmManager.RTC_WAKEUP, c.getTimeInMillis(), pendingIntent);
 
-        //added to start service
-
-//        Intent serviceIntent = new Intent(this, ExampleService.class);
-//        //serviceIntent.putExtra("inputExtra", input);
-//        serviceIntent.setAction(START_SERVICE);
-//
-//        ContextCompat.startForegroundService(this, serviceIntent);
     }
 
     private void cancelAlarm() {
@@ -97,15 +89,8 @@ public class MainActivity extends AppCompatActivity implements TimePickerDialog.
         alarmManager.cancel(pendingIntent);
         mTextView.setText("Alarm canceled");
 
-//        public void stopService(View v) {
             Intent serviceIntent = new Intent(this, ExampleService.class);
             serviceIntent.setAction(STOP_SERVICE);
-
-            //serviceIntent.putExtra("inputExtra",STOP_SERVICE);
             ContextCompat.startForegroundService(this, serviceIntent);
-//        ContextCompat.stopForegroundService(this,serviceIntent);
-//        stopSelf();
-
-        //}
     }
 }
