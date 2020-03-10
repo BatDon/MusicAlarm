@@ -17,7 +17,6 @@ public class AlertReceiver extends BroadcastReceiver {
         notificationHelper.getManager().notify(1, nb.build());
 
         Intent serviceIntent = new Intent(context, ExampleService.class);
-        //serviceIntent.putExtra("inputExtra", input);
         serviceIntent.setAction(START_SERVICE);
 
         ContextCompat.startForegroundService(context, serviceIntent);
