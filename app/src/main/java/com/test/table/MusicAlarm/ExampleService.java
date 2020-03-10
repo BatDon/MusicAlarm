@@ -16,10 +16,6 @@ import com.test.table.musicalarm.R;
 import static com.test.table.MusicAlarm.App.CHANNEL_ID;
 import static com.test.table.MusicAlarm.MainActivity.STOP_SERVICE;
 
-//import static com.test.table.foregroundserviceexample.App.CHANNEL_ID;
-//import static com.test.table.foregroundserviceexample.MainActivity.STOP_SERVICE;
-//import static com.codinginflow.foregroundserviceexample.App.CHANNEL_ID;
-
 
 public class ExampleService extends Service {
     MediaPlayer myPlayer;
@@ -33,7 +29,6 @@ public class ExampleService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-       // String input = intent.getStringExtra("inputExtra");
         Log.i("ExampleService",intent.getAction());
         if(intent.getAction().equals(STOP_SERVICE)){
             myPlayer.stop();
@@ -55,7 +50,6 @@ public class ExampleService extends Service {
 
             Notification notification = new NotificationCompat.Builder(this, CHANNEL_ID)
                     .setContentTitle("Example Service")
-                    //.setContentText(input)
                     .setSmallIcon(R.drawable.ic_music)
                     .setContentIntent(pendingIntent)
                     .build();
